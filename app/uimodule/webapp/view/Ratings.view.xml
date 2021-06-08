@@ -1,0 +1,122 @@
+<mvc:View controllerName="com.flexso.dev2dev.controller.Ratings"
+  xmlns="sap.uxap"
+  xmlns:layout="sap.ui.layout"
+  xmlns:m="sap.m"
+  xmlns:f="sap.f"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core">
+  <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false" headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false">
+      <headerTitle>
+      <ObjectPageDynamicHeaderTitle id="headerTitle">
+          <heading>
+          <m:Title text="{brewery} - {name}" wrapping="true" class="sapUiSmallMarginEnd" />
+          </heading>
+          <navigationActions>
+          <m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press=".handleClose" tooltip="Close column" />
+          </navigationActions>
+      </ObjectPageDynamicHeaderTitle>
+      </headerTitle>
+      <headerContent>
+      <m:FlexBox wrap="Wrap">
+          <m:Avatar src="{image}" backgroundColor="Random" displaySize="XL" displayShape="Square" imageFitType="Contain" class="sapUiTinyMarginEnd" />
+          <layout:HorizontalLayout class="sapUiSmallMarginBeginEnd">
+          <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+              <m:ObjectStatus title="Style" text="{style}" />
+              <m:ObjectStatus title="ABV" text="{abv}" />
+              <m:ObjectStatus title="Origin" text="{origin}" />
+          </layout:VerticalLayout>
+          <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+              <m:RatingIndicator maxValue="5" value="{avgRating}" tooltip="Rating Tooltip" />
+          </layout:VerticalLayout>
+          </layout:HorizontalLayout>
+      </m:FlexBox>
+      </headerContent>
+      <sections>
+      <ObjectPageSection>
+          <subSections>
+          <ObjectPageSubSection>
+              <blocks>
+              <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                  <m:Text text="{descr}" />
+              </layout:VerticalLayout>
+              </blocks>
+          </ObjectPageSubSection>
+          </subSections>
+      </ObjectPageSection>
+      <ObjectPageSection>
+          <subSections>
+          <ObjectPageSubSection>
+              <blocks>
+              <m:Table id="ratingsTable" items="{ path: 'ratings', parameters : {$$updateGroupId : 'ratings'} }" growing="true" growingThreshold="20">
+                  <m:headerToolbar>
+                  <m:OverflowToolbar class="sapFDynamicPageAlignContent">
+                      <m:Title text="Ratings" />
+                      <m:ToolbarSpacer />
+                      <m:OverflowToolbarButton icon="sap-icon://add" tooltip="Add a rating" text="Add a rating" type="Transparent" press=".onAddRating" />
+                  </m:OverflowToolbar>
+                  </m:headerToolbar>
+                  <m:columns>
+                  <m:Column>
+                      <m:Text text="Name" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Opacity" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Color" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Fruit" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Malt" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Spices" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Sweetness" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Biterness" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Acidity" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Body" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Carbon" />
+                  </m:Column>
+                  <m:Column>
+                      <m:Text text="Rating" />
+                  </m:Column>
+                  </m:columns>
+                  <m:items>
+                  <m:ColumnListItem>
+                      <m:cells>
+                      <m:ObjectIdentifier text="{user}" />
+                      <m:ObjectNumber number="{opacity}" numberUnit="/5" />
+                      <m:ObjectNumber number="{color}" numberUnit="/5" />
+                      <m:ObjectNumber number="{smell_fruit}" numberUnit="/5" />
+                      <m:ObjectNumber number="{smell_malt}" numberUnit="/5" />
+                      <m:ObjectNumber number="{smell_spice}" numberUnit="/5" />
+                      <m:ObjectNumber number="{taste_sweet}" numberUnit="/5" />
+                      <m:ObjectNumber number="{taste_bitter}" numberUnit="/5" />
+                      <m:ObjectNumber number="{taste_sour}" numberUnit="/5" />
+                      <m:ObjectNumber number="{taste_body}" numberUnit="/5" />
+                      <m:ObjectNumber number="{taste_acidity}" numberUnit="/5" />
+                      <m:RatingIndicator maxValue="5" value="{rating}" tooltip="Rating Tooltip" iconSize="12px" />
+                      </m:cells>
+                  </m:ColumnListItem>
+                  </m:items>
+              </m:Table>
+              </blocks>
+          </ObjectPageSubSection>
+          </subSections>
+      </ObjectPageSection>
+      </sections>
+  </ObjectPageLayout>
+  </mvc:View>

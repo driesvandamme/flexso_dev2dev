@@ -1,0 +1,78 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+  <Dialog title="Create Rating" id="createrating">
+	  <content>
+		  <f:Form id="FormChange354" editable="true">
+			  <f:layout>
+				  <f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+			  </f:layout>
+			  <f:formContainers>
+				  <f:FormContainer>
+					  <f:formElements>
+						  <f:FormElement label="Naam">
+							  <f:fields>
+								  <Input value="{user}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Helderheid">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{opacity}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Kleur">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{color}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Fruitig">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{smell_fruit}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Moutig">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{smell_malt}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Kruidig">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{smell_spice}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Zoet">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{taste_sweet}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Bitter">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{taste_bitter}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Zuur">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{taste_sour}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Body">
+							  <f:fields>
+								  <Slider enableTickmarks="true" min="0" max="5" value="{taste_body}" />
+							  </f:fields>
+						  </f:FormElement>
+						  <f:FormElement label="Rating">
+							  <f:fields>
+								  <RatingIndicator maxValue="5" value="{rating}" tooltip="Rating" />
+							  </f:fields>
+						  </f:FormElement>
+					  </f:formElements>
+				  </f:FormContainer>
+			  </f:formContainers>
+		  </f:Form>
+	  </content>
+	  <beginButton>
+		  <Button text="Opslaan" type="Emphasized" press=".onSaveRating"></Button>
+	  </beginButton>
+	  <endButton>
+		  <Button text="Annuleren" press=".onCloseDialog"></Button>
+	  </endButton>
+  </Dialog>
+</core:FragmentDefinition>

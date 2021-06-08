@@ -1,0 +1,139 @@
+{
+  "_version": "1.21.0",
+  "sap.app": {
+    "id": "com.flexso.dev2dev",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "rating": {
+        "uri": "/rating/",
+        "type": "OData",
+        "settings": {
+          "localUri": "localService//rating//metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "rootView": {
+      "viewName": "com.flexso.dev2dev.view.MainView",
+      "type": "XML",
+      "async": true,
+      "id": "idAppControl"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.flexso.dev2dev.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupProperties": {
+            "default": {
+              "submit": "Auto"
+            }
+          }
+        },
+        "dataSource": "rating"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+	"routing": {
+	  "config": {
+		"routerClass": "sap.f.routing.Router",
+		"viewType": "XML",
+		"viewPath": "com.flexso.dev2dev.view",
+		"controlId": "fcl",
+		"transition": "slide",
+		"async": true
+	  },
+	  "routes": [
+		{
+		  "name": "Beers",
+		  "pattern": "",
+		  "target": [
+			"TargetBeers"
+		  ],
+		  "layout": "OneColumn"
+		},
+		{
+		  "name": "Ratings",
+		  "pattern": "Ratings/{beer}",
+		  "target": [
+			"TargetBeers",
+			"TargetRatings"
+		  ],
+		  "layout": "TwoColumnsMidExpanded"
+		}
+	  ],
+	  "targets": {
+		"TargetMainView": {
+		  "viewType": "XML",
+		  "viewLevel": 1,
+		  "viewId": "idAppControl",
+		  "viewName": "MainView"
+		},
+		"TargetBeers": {
+		  "viewType": "XML",
+		  "viewId": "Beers",
+		  "viewName": "Beers",
+		  "controlAggregation": "beginColumnPages"
+		},
+		"TargetRatings": {
+		  "viewType": "XML",
+		  "viewId": "Ratings",
+		  "viewName": "Ratings",
+		  "controlAggregation": "midColumnPages"
+		}
+	  }
+	}
+  }
+}

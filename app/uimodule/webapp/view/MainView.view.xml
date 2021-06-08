@@ -1,0 +1,6 @@
+  <mvc:View controllerName="com.flexso.dev2dev.controller.MainView" displayBlock="true" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f">
+  <f:FlexibleColumnLayout id="fcl">
+      <f:beginColumnPages></f:beginColumnPages>
+      <f:midColumnPages></f:midColumnPages>
+  </f:FlexibleColumnLayout>
+  </mvc:View>
